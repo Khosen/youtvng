@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>YouTV</title>
+  <link>https://www.youtvng.com</link>
+  <description>We are an online broadcasting media Channel for all people 
+          offering a new perspective</description>
+  <item>
+    <title>YouNews</title>
+    <link>https://www.youtvng.com/programme/youNews</link>
+    <description>Latest news</description>
+  </item>
+  <item>
+    <title>Music Entertainment</title>
+    <link>https://www.youtvng.com/programme/youmusic</link>
+    <description>Latest music entertainment</description>
+  </item>
+ <item>
+    <title>Sports Entertainment</title>
+    <link>https://www.youtvng.com/programme/yousports</link>
+    <description>Latest sports entertainment</description>
+  </item>
+  <item>
+    <title>Rural Voices</title>
+    <link>https://www.youtvng.com/programme/ruralvoices</link>
+    <description>The voices of the people</description>
+  </item>
+<item>
+ <title>Fashion</title>
+    <link>https://www.youtvng.com/programme/youfashion</link>
+    <description>Fashion trends</description>
+  </item>
+<item>
+ <title>You Personality</title>
+    <link>https://www.youtvng.com/programme/youPersonality</link>
+    <description>Our personalities</description>
+  </item>
+
+
+</channel>
+
+</rss>

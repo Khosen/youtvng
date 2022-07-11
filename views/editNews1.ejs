@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/navbarHead') %>
+<%- include('./partials/formsheets') %>
+
+</head>
+<body>
+  <%-include('./partials/navbarBody') %>
+  
+<div class="container">
+  <div class="">
+  <div class="wrapper wrapper--w790 " >
+    <div class="card card-5">
+    <div class="card-heading">
+      <h2 class="title">News Post</h2>
+   
+    </div>
+    <div class="card-body">
+        <% for( x= 0; x<docs.length; x++) {%>
+     
+      <form  class="form-signin" action="/edit/editNews/<%= docs[x].id %>" id="form" method="POST">
+     
+     
+        <div class="text-center">
+            <img src="/img/navlogo.jpeg">
+            <p><label class="text-center">News Post</label> </p>
+                    <p>  <span> <% if (locals.message.length>0) { %>
+                      <ul>
+                        
+                              <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                                  <%= message%>
+                              </li>
+                         
+                      </ul>
+                      <% } %>
+                  </span>
+                    </p>
+        </div>
+        <br>
+        <br>
+       
+          <div class="form-group">
+            <label >Topic</label>
+             <input class="form-control" type="text" name="inputTopic" id="inputTopic"
+             value=" <%= docs[x].topic %>" >
+          </div>
+       
+       
+       
+        <div class="form-group">
+          <label>News</label>
+          <textarea class="form-control" type="text"name="news" id="news" rows="10"
+           col="30"> <%= docs[x].news %></textarea>
+          
+        </div>
+       
+          <div class="form-row button-wrapper">
+            <div class="col-12 col-md-6">
+                <button type="submit" class="btn btn-primary btn-danger btn-block">Submit</button>
+       
+            </div>
+            <div class="col-12 col-md-6">
+                <button type="submit" class="btn btn-primary btn-danger btn-block" formaction="/delete">Delete</button>
+       
+            </div>
+          
+          </div>
+         
+      </form>
+      <% } %>
+        
+   </div>
+</div> 
+</div>
+</div>
+</div>
+    
+<%- include('./partials/formScripts') %>
+    <script src="/js/theValue.js"></script>
+    <script src="/js/imgPreview.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+
+<!doctype html>
+<html lang="en">
+
+
+  <%- include('./partials/dashboard') %> 
+  <body>  
+    
+    <%- include('./partials/loginNav') %> 
+    
+
+    
+<section id="breadcrumb">
+<div class="container">
+  <ol class="breadcrumb">
+    <li class="active">Dashboard</li>
+  </ol>
+</div>
+</section>
+<section id="breadcrumb">
+  <div class="container">
+
+       <%- include('./partials/messages') %> 
+   
+  </div>
+  </section>
+
+
+<!--modal-->
+<div class="col-md-2">
+  
+    <div class="dropdown create">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Create Content
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a href="#addPost" role="button" class="btn dropdown-item" data-toggle="modal" >add Posts</a>
+        </li>
+     <!--   <li><a href="" role="button" class="btn dropdown-item" data-toggle="modal">add User</a>
+     --></li>
+        <li><a href="" role="button" class="btn dropdown-item" data-toggle="modal">Music Upload</a>
+        </li>
+      </ul>
+      
+    </div>
+   
+  </div>
+
+<!-- Modal -->
+<form  class="form-signin" action="/admin/dashboard" id="form" method="POST" enctype="multipart/form-data">
+     
+  <div class="modal fade" id="addPost" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+       
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%- include('./partials/messages') %> 
+                 
+       
+       
+        <br>
+        <div class="form-row" >
+          <div class="form-group col-md-3">
+            <label for="inputState"><b>Category</b></label>
+          
+            <select required id="catOption"  name="catOption" class="form-control "
+            placeholder="choose category" data-toggle="tooltip">
+   
+       <option disabled="disabled" selected="selected"selected value="">Choose categeory</option>
+       <% for (a=0; a< category.length; a++) {%>
+           <option value="<%= category[a].category%>"> <%= category[a].category %></option>
+           
+          <% }%> 
+       
+        
+       </select>
+          </div>
+  
+          <div class="form-group col-md-3">
+            <label for="inputState"><b>Subcategory</b></label>
+            <select required id="sCategoryOption" name="sCategoryOption" 
+            class="form-control textboxes" placeholder="choose sub category" data-toggle="tooltip"
+            title="click for dropdown">
+            <option  selected value="">Choose SubCategory</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label ><b>Topic</b></label>
+             <input class="form-control" type="text" name="inputTopic" id="inputTopic" placeholder="eg.: The eagle has landed">
+          </div>
+  
+          
+          <div class="form-group col-md-3">
+            <label><b>Author</b></label>
+             
+            <input class="form-control" type="text" name="inputAuthor" id="inputAuthor" placeholder="eg.: The eagle has landed">
+            <input class="form-control" type="hidden" value="<%= user.name %>" name="username" id="username" >
+            <input class="form-control" type="hidden" value="<%= user.role %>" name="role" id="role" >
+   
+            </div>
+       </div>
+     
+       
+        <div class="form-row" >
+              <div class="form-group col-md-4">
+        <label ><b>Upload Video</b></label>
+             
+        <input class="form-control" type="text" name="video" id="video" placeholder="eg.: upload video">
+         </div>
+  
+         <div class="form-group col-md-4">
+          <label ><b>Video Link</b></label>
+         
+          <input class="form-control" type="text" name="videoLink" id="videoLink" placeholder="eg.:https://www.facebook.com/plugins/">
+            </div>
+  
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-12">
+            <label><b>News</b></label>
+            <textarea class="form-control" type="text"name="news" id="news" rows="5" col="30"placeholder="eg.: The eagle has landed"></textarea>
+            
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Images</div>
+            <div class="value">
+            <div class="input-group">
+                <label for="image" class="textlabel" title="upload image thumbnail for post"> (max. 10 fileSize max 2mb)</label>
+                <br>
+                <input class="textlabel" type='file' id='image' onchange="readURL(this);" name='image' multiple/>
+                      
+                <!--  </form>-->
+                 <br>
+                  <img id="prev" src="<%= typeof  file != 'undefined' ? file: ' ' %>"  class="img-thumbnail" style="Width:50px; height:50px;"/>
+                  </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-danger" >Post</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </form>
+
+
+  <%- include('./partials/dashScripts') %>
+</body>
+</html>

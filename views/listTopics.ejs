@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/dashboardhead') %>
+        <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <style>
+        .top{
+        padding-top:10rem;
+        }
+        .body{
+            color:black;
+        }
+
+    </style>
+</head>
+
+<body class="text-center">
+    <%- include('./partials/dashboardnav') %>
+   
+<div class="container-fluid">
+
+    <div class='row top'>
+        <div class='col-8 offset-2'>
+            <h5 style="font-weight: bold;">click on topic to edit</h5>
+      
+            <% for (a=0; a< docs.length; a++) {%>
+                
+    <ul class="list-group">
+      <a href="/edit/topic/<%= docs[a].id %>"> <li class="list-group-item" ><%= docs[a].topic %>
+    </li> </a>
+    <input type="text" id="idno" name="idno" value="<%= docs[a].subid %>"
+     class="form-control" >
+ 
+   
+      <!--  <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>-->
+      </ul>
+      <% }%> 
+</div>
+</div>
+</div>
+        <!-- /.container -->
+        <%- include('./partials/dashboardscript') %>
+
+</body>
+
+</html>

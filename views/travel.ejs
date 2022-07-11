@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Travel Archive</title>
+
+<% include ./partials/favico %>
+
+<% include ./partials/sheets %>
+
+</head>
+<body>
+
+<div class="preloader d-flex align-items-center justify-content-center">
+<div class="lds-ellipsis">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+
+<header class="header-area">
+
+    <% include ./partials/header %>
+   
+</header>
+
+
+<div class="vizew-breadcrumb">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+<li class="breadcrumb-item"><a href="#">Feature</a></li>
+<li class="breadcrumb-item active" aria-current="page"> Hospitalilty & Travel Archive</li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="vizew-grid-posts-area mb-80">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-8">
+
+<div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
+
+<div class="archive-catagory">
+<h4><i class="fa fa-newspaper-o" aria-hidden="true"></i>   &nbsp; Hospitality&Travel</h4>
+</div>
+
+</div>
+<div class="row">
+    <% for(var x=0; x<docs.length; x++) {%>
+ 
+       
+<div class="col-12 col-md-6">
+<div class="single-post-area mb-50">
+ 
+<div class="post-thumbnail">
+
+    <img style="height:200px; width:100%"  src="/<%=docs[x].photo %>"/>
+  
+</div>
+
+<div class="post-content">
+<a href="#" class="post-cata cata-sm cata-success"><%= docs[x].subcategory %></a>
+<a href="/news/<%=docs[x].slug %>" class="post-title"><%= docs[x].topic%></a>
+<div class="post-meta d-flex">
+<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> <%= docs[x].commentCounts%></a>
+<a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%= docs[x].viewCounts%></a>
+<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= docs[x].clicks%></a>
+</div>
+</div>
+</div>
+</div>
+
+<% } %>
+
+</div>
+
+<!--<nav class="mt-50">
+<ul class="pagination justify-content-center">
+<li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+<li class="page-item"><a class="page-link" href="#">1</a></li>
+<li class="page-item"><a class="page-link" href="#">2</a></li>
+<li class="page-item"><a class="page-link" href="#">3</a></li>
+<li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+</ul>
+</nav>-->
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<div class="sidebar-area">
+</div>
+
+
+<div class="single-widget newsletter-widget mb-50">
+
+<div class="section-heading style-2 mb-30">
+<h4>Advert</h4>
+<div class="line"></div>
+</div>
+<img src="/img/3.png" alt="">
+
+</div>
+
+<div class="single-widget">
+
+<div class="section-heading style-2 mb-30">
+<h4>Advert</h4>
+<div class="line"></div>
+</div>
+<img src="/img/3.png" alt="">
+
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<footer class="footer-area">
+    <% include ./partials/footer %>
+</footer>
+<% include ./partials/scripts %>
+
+</body>
+</html>

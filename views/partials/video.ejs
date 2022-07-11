@@ -1,0 +1,36 @@
+
+
+
+<!--<section id="sectionvideo">
+    <div class="overlayvideo" >
+    <video id="video" preload="true" playsinline="playsinline" volume="20"
+    autoplay="autoplay" poster="videos/youlogo.jpeg"  muted="" >
+      <source src="videos/magic-cloth.mp4" type="video/mp4">
+    </video>
+  
+  
+</section> -->
+
+
+<section id="sectionvideo">
+  <div class="overlayvideo"></div>
+  <video id="video" playsinline="playsinline" autoplay="autoplay" muted="" loop="loop">
+    <source src="videos/magic-cloth.mp4" type="video/mp4">
+  </video>
+  
+    <div id="socialIcons"><a id="" rel="search" data-title="" href="#"><i
+      class="fa fa-hand-o-down fa-2x fa-align-center"></i></a>
+     <H6> Scroll to Site </H6>
+  
+  </div>
+  </div>
+</section>
+<script>
+  let video= document.getElementById("video");
+  video.onended = function(){
+    video.currentTime=0;
+    //video.poster = "videos/youlogo.jpeg"
+    video.src= "videos/magic-cloth.mp4"
+  };
+</script>
+

@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/navbarHead') %>
+  <%- include('./partials/formsheets') %>
+
+</head>
+<body>
+  <%-include('./partials/navbarBody') %>
+  
+<div class="container " style="margin-top: 8rem;">
+
+  <div class="wrapper wrapper--w790 " >
+    <div class="card card-5">
+    <div class="card-heading">
+      <h2 class="title"></h2>
+      <p><label class="text-center"></label> </p>
+      <p>  <span> <% if (locals.message.length>0) { %>
+        <ul>
+          
+                <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                    <%= message%>
+                </li>
+           
+        </ul>
+        <% } %>
+    </span>
+    </div>
+    <div class="card-body" style="margin-top: -8rem;">
+  
+      <span style="font-size:20px;"> <b>News Topics </b></span>
+      <div class="row" >
+        <div class="col-12 col-md-10 offset-md-2" >
+          <% for (a=0; a< docs.length; a++) {%>
+           
+      <ul class="list-group">
+          <li class="list-group-item"> <a href="/edit/editNews/<%= docs[a].id %>"><b><%= docs[a].topic %>
+          </b></a>
+            <p style="margin-bottom:-1rem; font-size: small; color:rgb(90, 6, 6)"><span>
+             Written by: <%= docs[a].author %>, &nbsp; Subactegory: <%= docs[a].name %>, &nbsp; <%= docs[a].date %>,
+               &nbsp; <%= docs[a].time %>
+
+            </span></p>
+          </li>
+        
+        </ul>
+        <% }%> 
+      </div>
+      </div>
+    </div>
+    </div>
+    </div>
+ 
+
+  
+
+<%- include('./partials/formScripts') %>
+  
+</body>
+</html>

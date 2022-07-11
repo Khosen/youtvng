@@ -1,0 +1,128 @@
+
+<!doctype html>
+<html lang="en">
+
+
+  <%- include('./partials/dashboard') %> 
+  
+  
+  <body>
+  
+    <%- include('./partials/registerNav') %> 
+ 
+<br>
+<br>
+<br>
+<section id="main">
+  <div class="container ">
+    <div class= "row align-items-center justify-content-center">
+
+      <div class="col-md-4 ">
+        <div class="card ">
+          <div class="card-header main-color-bg">
+            <span class="iconify" data-icon="bi-person-fill" data-inline="false" data-height="20">
+            </span>
+         
+           Register
+          </div>
+          <!--website users-->
+          <div class="card-body">
+            <div class="row ">
+              <div class="col">
+              
+                <form class="form-signin" method="POST" action="/users/admin">
+                 
+                  <%- include('./partials/messages') %> 
+                    <h3 class="h3 mb-3 font-weight-bold " style="color:rgb(161, 77, 77); font-size:medium;">
+                        You are registering as the Admin of the website</h3>
+                                     
+                     
+                    <div class="form-group">
+                     <input 
+                   
+                      type="text"
+                      id="name"
+                      name="name" 
+                      class="form-control" 
+                      placeholder="eg John Doe"
+                      value="<%=typeof name!='undefined' ? name:'' %>" 
+                     autofocus>
+                      <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                     -->
+
+                    </div>
+
+                    <div class="form-group">
+                      <input
+                     
+                       type="email"
+                       id="email"
+                       name="email" 
+                       class="form-control" 
+                       placeholder="email"
+                       value="<%=typeof email!='undefined' ? email:'' %>" 
+                      autofocus>
+                       <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      -->
+ 
+                     </div>
+                    <div class="form-group">
+                     <input 
+                     
+                     type="password" 
+                     id="password"
+                      name="password" 
+                      class="form-control"
+                       data-placement="after"
+                        data-toggle="password"
+                         maxlength="10" 
+                         value="<%=typeof password!='undefined' ? password:'' %>" 
+                         placeholder="Password" 
+                         >
+            
+                     <input 
+                    
+                     type="password" 
+                     id="password2"
+                      name="password2" 
+                      class="form-control"
+                      data-toggle="password" 
+                      maxlength="10" 
+                      value="<%=typeof password2!='undefined' ? password2:'' %>" 
+                      placeholder="Re-Enter Password" 
+                      >
+
+               
+                    </div>
+                    
+                   <span> <button type="submit" class="btn btn-danger">Register</button>
+                    </span>
+                   
+                   
+                  </form>
+                  
+                 </div>
+                    
+            </div>
+         </div>
+        </div>
+        </div>
+    </div>
+   </div>
+   
+    <br>
+           
+</section>
+
+     
+<footer class="offset-4">
+    <div class="footer">
+    <p class="mt-1"><b>YouTV &copy; <script type="text/javascript">
+        document.write(new Date().getFullYear());
+      </script></b></p>
+    </div>
+</footer>
+<%- include('./partials/dashScripts') %>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+
+<!doctype html>
+<html lang="en">
+
+
+  <%- include('./partials/dashboard') %> 
+  <body>  
+    
+    <%- include('./partials/loginNav') %> 
+    
+   
+    
+
+<section id="breadcrumb">
+  <div class="container">
+
+       <%- include('./partials/messages') %> 
+   
+  </div>
+  </section>
+<!--<section>
+  <div>
+  
+        ssss  
+        
+        <div> <span> <% if (locals.error.length>0) { %>
+          <ul>
+            
+                  <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                      <%= error%>
+                  </li>
+             
+          </ul>
+          <% } %>
+      </span>
+      </div>
+  </div>
+</section>-->
+<section id="main">
+  <div class="container">
+    <div class= "row " style="margin-top:15px;">
+      <div class="col-md-3">
+           </div>
+          
+      </div>
+      <div class="col-md-9 offset-2 ">
+       
+        <div class="card">
+          <div class="card-header main-color-bg">
+            YouReporter
+
+            <div style="background-color: whitesmoke; color:black;">
+             <p style="margin-left: 15px; margin-right: 15px;  text-align:justify;">&nbsp; YouTV Nigeria
+
+              Article submissions and story ideas are welcome!  We do our very best to get as much community news in each issue as possible.
+              
+              Story ideas can be submitted at anytime, but may take time to be fully developed by our reporting staff. 
+              
+                        
+              Please note: In order to safeguard the privacy of minors, photos of children under age 18 cannot be published unless accompanied by a release/written permission from their parents.  Please submit a release with the photo in order to have it considered for publication.
+              
+              PHOTOS should be submitted with a cutline/description identifying each individual pictured, along with the name of the person's hometown.
+            Photos should be submitted in JPEG formats of 3mb Max.
+            </p>
+            <p><b>click the button below to send news</b></p>
+            </div>
+            <div class="dropdown create">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Create Content
+              </button>
+                 
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a href="#addPost" role="button" class="btn dropdown-item" data-toggle="modal" >add Posts</a>
+                </li>
+             
+              </ul>
+              <a href="/" class="btn btn-secondary" type="button" >
+               Home Page
+              </a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+    </div>
+    
+   
+    <!--website users-->
+    <br>
+    <br>
+  
+  </div>
+  
+</section>
+
+<!--modal-->
+
+<!-- Modal -->
+<form  class="form-signin" action="/admin/dashboard" id="form" method="POST" enctype="multipart/form-data">
+     
+  <div class="modal fade" id="addPost" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+       
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%- include('./partials/messages') %> 
+                 
+       
+       
+        <br>
+        <div class="form-row" >
+          <div class="form-group col-md-3">
+            <label for="inputState"><b>Category</b></label>
+          
+            <select required id="catOption"  name="catOption" class="form-control "
+            placeholder="choose category" data-toggle="tooltip">
+   
+       <option disabled="disabled" selected="selected"selected value="">Choose categeory</option>
+       <% for (a=0; a< category.length; a++) {%>
+           <option value="<%= category[a].category%>"> <%= category[a].category %></option>
+           
+          <% }%> 
+       
+        
+       </select>
+          </div>
+  
+          <div class="form-group col-md-3">
+            <label for="inputState"><b>Subcategory</b></label>
+            <select required id="sCategoryOption" name="sCategoryOption" 
+            class="form-control textboxes" placeholder="choose sub category" data-toggle="tooltip"
+            title="click for dropdown">
+            <option  selected value="">Choose SubCategory</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label ><b>Topic</b></label>
+             <input class="form-control" type="text" name="inputTopic" id="inputTopic" placeholder="eg.: The eagle has landed">
+          </div>
+  
+          
+          <div class="form-group col-md-3">
+            <label><b>Author</b></label>
+             
+            <input class="form-control" type="text" name="inputAuthor" id="inputAuthor" placeholder="eg.: The eagle has landed">
+          
+            </div>
+       </div>
+     
+       
+        <div class="form-row" >
+              <div class="form-group col-md-4">
+        <!--<label ><b>Upload Video</b></label>
+             
+        <input class="form-control" type="text" name="video" id="video" placeholder="eg.: upload video">-->
+         </div>
+  
+         <div class="form-group col-md-4">
+         <!-- <label ><b>Video Link</b></label>
+         
+          <input class="form-control" type="text" name="videoLink" id="videoLink" placeholder="eg.:https://www.facebook.com/plugins/">
+         --></div>
+  
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-12">
+            <label><b>News</b></label>
+            <textarea class="form-control" type="text"name="news" id="news" rows="5" col="30"placeholder="eg.: The eagle has landed"></textarea>
+            
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Images</div>
+            <div class="value">
+            <div class="input-group">
+                <label for="image" class="textlabel" title="upload image thumbnail for post"> (max. 10 fileSize max 2mb)</label>
+                <br>
+                <input class="textlabel" type='file' id='image' onchange="readURL(this);" name='image' multiple/>
+                      
+                <!--  </form>-->
+                 <br>
+                  <img id="prev" src="<%= typeof  file != 'undefined' ? file: ' ' %>"  class="img-thumbnail" style="Width:50px; height:50px;"/>
+                  </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-danger" >Post</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </form>
+
+
+  <%- include('./partials/dashScripts') %>
+</body>
+</html>

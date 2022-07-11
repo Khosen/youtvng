@@ -1,0 +1,108 @@
+
+<!doctype html>
+<html lang="en">
+  
+
+    <%- include('./partials/dashboard') %> 
+    <body>
+      <%- include('./partials/loginNav') %> 
+  
+
+<section id="breadcrumb">
+<div class="container">
+  <ol class="breadcrumb">
+    <li >Edit News</li>
+  </ol>
+</div>
+</section>
+
+<section id="main">
+  <div class="container">
+    <div class= "row">
+      <div class="col-md-3">
+      
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active main-color-bg" aria-current="true">
+            <span class="iconify" data-icon="bi-gear-fill" data-inline="false" data-height="25">
+            </span>
+              Dashboard
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify " data-icon="bi-pencil" data-inline="false" data-height="15">
+          </span>
+              Posts &nbsp; 
+              <span class="badge  badge-danger badge-pill">0</span></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-list-task" data-inline="false" data-height="15">
+          </span>
+             Approval  &nbsp;   
+             <span class="badge  badge-danger badge-pill">11345</span></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-person" data-inline="false" data-height="15">
+          </span>
+             Users &nbsp; 
+             <span class="badge  badge-danger badge-pill">0</span></a> 
+           </div>
+          
+           <div class="card">
+
+          
+           </div>
+      </div>
+     
+      <div class="col-md-9">
+
+       
+    <div class="card ">
+        <div class="card-header main-color-bg">
+         PEdit News
+
+       </div>
+      </div>
+      <% for( x= 0; x<docs.length; x++) {%>
+        <form   action="/edit/editNews/<%= docs[x].id %>" id="form" method="POST">
+
+  <div class="form-row">
+      <div class="form-group col-md-12" > 
+        <label ><b>Topic</b></label>
+         <input class="form-control" type="text" name="inputTopic" id="inputTopic"
+         value=" <%= docs[x].topic %>" >
+      </div>
+    
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-12">
+  
+  <label><b>News</b></label>
+  <textarea class="form-control" type="text"name="news" id="news" rows="5"
+   col="30"> <%= docs[x].news %></textarea>
+  
+</div>
+</div>
+
+<div class="modal-footer">
+<!--<button type="submit" class="btn btn-secondary"  formaction="/delete">Delete</button>-->
+<button type="submit" class="btn btn-primary btn-danger">Done</button>
+</div>
+
+
+</div>
+
+ </form>
+  <% } %>
+       
+    
+    </div>
+    </div>
+    <!--website users-->
+    <br>
+    
+   
+  
+</section>
+
+<%- include('./partials/dashScripts') %>
+
+</body>
+</html>

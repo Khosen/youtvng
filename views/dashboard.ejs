@@ -1,0 +1,276 @@
+
+<!doctype html>
+<html lang="en">
+
+
+  <%- include('./partials/dashboard') %> 
+  <body>  
+    
+    <%- include('./partials/loginNav') %> 
+    
+   <%- include('./partials/dashboardBody') %> 
+    
+<section id="breadcrumb">
+<div class="container">
+  <ol class="breadcrumb">
+    <li class="active">Dashboard</li>
+  </ol>
+</div>
+</section>
+<section id="breadcrumb">
+  <div class="container">
+
+       <%- include('./partials/messages') %> 
+   
+  </div>
+  </section>
+<!--<section>
+  <div>
+  
+        ssss  
+        
+        <div> <span> <% if (locals.error.length>0) { %>
+          <ul>
+            
+                  <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                      <%= error%>
+                  </li>
+             
+          </ul>
+          <% } %>
+      </span>
+      </div>
+  </div>
+</section>-->
+<section id="main">
+  <div class="container">
+    <div class= "row">
+      <div class="col-md-3">
+      
+        <div class="list-group">
+          <a href="dashboard" class="list-group-item list-group-item-action active main-color-bg" aria-current="true">
+            <span class="iconify" data-icon="bi-gear-fill" data-inline="false" data-height="25">
+            </span>
+              Dashboard
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify " data-icon="bi-pencil" data-inline="false" data-height="15">
+          </span>
+              <!--Approve Posts &nbsp; 
+              <span class="badge  badge-danger badge-pill">0</span>--></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-list-task" data-inline="false" data-height="15">
+          </span>
+             <!--Edit Posts  &nbsp;   
+             <span class="badge  badge-danger badge-pill">11345</span>--></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-person" data-inline="false" data-height="15">
+          </span>
+             <!--Users &nbsp; 
+             <span class="badge  badge-danger badge-pill">0</span>--></a> 
+           </div>
+          
+           <div class="card">
+
+          
+           </div>
+      </div>
+      <div class="col-md-9">
+       
+        <div class="card">
+          <div class="card-header main-color-bg">
+            Website Overview
+          </div>
+          <!--website users-->
+          <div class="card-body">
+            <div class="row ">
+              <div class="col">
+                <div class="card text-center card-color">
+                     <h4 class="card-title"> <span class="iconify " data-icon="bi-pencil" data-inline="false" data-height="15">
+                    </span><span class="badge"><%=posts%></span> </h4>
+                    <h5> Posts</h5>
+                </div>
+            </div>
+
+              <div class="col">
+                <div class="card text-center card-color">
+                     <h4 class="card-title"> <span class="iconify" data-icon="bi-list-task" data-inline="false" data-height="15">
+          </span><span class="badge"><%=approved%></span> </h4>
+                    <h5> Approval</h5>
+                </div>
+            </div>
+            <div class="col">
+              <div class="card text-center card-color">
+                   <h4 class="card-title">   <span class="iconify" data-icon="bi-person" data-inline="false" data-height="15">
+                  </span><span class="badge"><%=userNo%></span> </h4>
+                  <h5> Users</h5>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card text-center card-color">
+                 <h4 class="card-title">   <span class="iconify" data-icon="bi-bar-chart-fill" data-inline="false" data-height="15">
+                </span><span class="badge">0</span> </h4>
+                <h5>Visitors</h5>
+            </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-center card-color">
+               <h4 class="card-title"> <span class="iconify " data-icon="bi-pencil" data-inline="false" data-height="15">
+              </span><span class="badge">0</span> </h4>
+              <h5> Posts</h5>
+          </div>
+      </div>
+      
+      </div>
+    </div>
+    </div>
+    
+   
+    <!--website users-->
+    <br>
+    <br>
+    <div class="card">
+      <div class="card-header main-color-bg">
+       Latest Users
+     </div>
+    <div class="card-body">
+      <div class="row table-responsive">
+        <table class="table table-striped table-hover " name="tab">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+          </tr>
+          <% for (u=0; u< users.length; u++) {%>
+     
+          <tr>
+          
+            <td><%= users[u].name %></td>
+            <td><%= users[u].email %></td>
+            <td><%= users[u].date %></td>
+            <td><%= users[u].time %></td>
+          </tr>
+          <% }%> 
+       
+        </table>
+       </div> 
+    </div>
+  </div>
+  
+</section>
+
+<!--modal-->
+
+
+<!-- Modal -->
+<form  class="form-signin" action="/admin/dashboard" id="form" method="POST" enctype="multipart/form-data">
+     
+  <div class="modal fade" id="addPost" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+       
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%- include('./partials/messages') %> 
+                 
+       
+       
+        <br>
+        <div class="form-row" >
+          <div class="form-group col-md-3">
+            <label for="inputState"><b>Category</b></label>
+          
+            <select required id="catOption"  name="catOption" class="form-control "
+            placeholder="choose category" data-toggle="tooltip">
+   
+       <option disabled="disabled" selected="selected"selected value="">Choose categeory</option>
+       <% for (a=0; a< category.length; a++) {%>
+           <option value="<%= category[a].category%>"> <%= category[a].category %></option>
+           
+          <% }%> 
+       
+        
+       </select>
+          </div>
+  
+          <div class="form-group col-md-3">
+            <label for="inputState"><b>Subcategory</b></label>
+            <select required id="sCategoryOption" name="sCategoryOption" 
+            class="form-control textboxes" placeholder="choose sub category" data-toggle="tooltip"
+            title="click for dropdown">
+            <option  selected value="">Choose SubCategory</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label ><b>Topic</b></label>
+             <input class="form-control" type="text" name="inputTopic" id="inputTopic" placeholder="eg.: The eagle has landed">
+          </div>
+  
+          
+          <div class="form-group col-md-3">
+            <label><b>Author</b></label>
+             
+            <input class="form-control" type="text" name="inputAuthor" id="inputAuthor" placeholder="eg.: The eagle has landed">
+            <input class="form-control" type="hidden" value="<%= user.name %>" name="username" id="username" >
+            <input class="form-control" type="hidden" value="<%= user.role %>" name="role" id="role" >
+   
+            </div>
+       </div>
+     
+       
+        <div class="form-row" >
+              <div class="form-group col-md-4">
+        <label ><b>Upload Video</b></label>
+             
+        <input class="form-control" type="text" name="video" id="video" placeholder="eg.: upload video">
+         </div>
+  
+         <div class="form-group col-md-4">
+          <label ><b>Video Link</b></label>
+         
+          <input class="form-control" type="text" name="videoLink" id="videoLink" placeholder="eg.:https://www.facebook.com/plugins/">
+            </div>
+  
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-12">
+            <label><b>News</b></label>
+            <textarea class="form-control" type="text"name="news" id="news" rows="5" col="30"placeholder="eg.: The eagle has landed"></textarea>
+            
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Images</div>
+            <div class="value">
+            <div class="input-group">
+                <label for="image" class="textlabel" title="upload image thumbnail for post"> (max. 10 fileSize max 2mb)</label>
+                <br>
+                <input class="textlabel" type='file' id='image' onchange="readURL(this);" name='image' multiple/>
+                      
+                <!--  </form>-->
+                 <br>
+                  <img id="prev" src="<%= typeof  file != 'undefined' ? file: ' ' %>"  class="img-thumbnail" style="Width:50px; height:50px;"/>
+                  </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-danger" >Post</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </form>
+
+
+  <%- include('./partials/dashScripts') %>
+</body>
+</html>

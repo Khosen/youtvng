@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<title>AfroMusic downloads</title>
+
+<% include ./partials/favico %>
+
+<% include ./partials/sheets %>
+
+
+
+
+</head>
+<body>
+
+
+  <header class="header-area">
+
+    <% include ./partials/header %>
+  
+      </header>
+      
+      
+      
+  <section class="hero--area section-padding-80">
+   
+  <div class="container text-center">
+      <div class="section-heading style-2">
+      <div class="col-md-8 offset-md-4 " style="background-image: url();">
+       
+         <audio controls src="/<%= docs[0].musicfile%>" ></audio>
+
+<div style="margin-bottom:-5vw important;"> 
+   <b>Song title:</b>&nbsp; <%= docs[0].title%> &nbsp; &nbsp; Artiste: <%= docs[0].artist%></div>
+  <div> <span > Genre:<%= docs[0].genre%> </span>
+      <!--  <a href="/afroMusic/downloads/<%= docs[0]._id%>">download music</a>-->
+    </div>   
+    
+     </div>
+    
+</div>
+</div>
+  </section>  
+  
+  <footer class="footer-area">
+    <% include ./partials/footer %>
+</footer>
+<% include ./partials/scripts %>
+</body>
+</html>

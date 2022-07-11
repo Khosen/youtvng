@@ -1,0 +1,91 @@
+
+      <div class="modal-body">
+        
+        <!--<p><label class="text-center"></label> </p>-->
+        <span> <% if (locals.error.length>0) { %>
+          <ul>
+            
+                  <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                      <%= error%>
+                  </li>
+             
+          </ul>
+          <% } %>
+       </span>
+       
+        <br>
+        <div class="form-row" >
+          <div class="form-group col-md-3">
+            <label for="inputState"><b>Category</b></label>
+          
+            <select required id="catOption"  name="catOption" class="form-control "
+            placeholder="choose category" data-toggle="tooltip">
+   
+       <option disabled="disabled" selected="selected"selected value="">Choose categeory</option>
+       <% for (a=0; a< category.length; a++) {%>
+           <option value="<%= category[a].category%>"> <%= category[a].category %></option>
+           
+          <% }%> 
+       
+        
+       </select>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="inputState"><b>Subcategory</b></label>
+            <select required id="sCategoryOption" name="sCategoryOption" 
+            class="form-control textboxes" placeholder="choose sub category" data-toggle="tooltip"
+            title="click for dropdown">
+            <option  selected value="">Choose SubCategory</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label ><b>Topic</b></label>
+             <input class="form-control" type="text" name="inputTopic" id="inputTopic" placeholder="eg.: The eagle has landed">
+          </div>
+
+          
+          <div class="form-group col-md-3">
+            <label><b>Author</b></label>
+             
+            <input class="form-control" type="text" name="inputAuthor" id="inputAuthor" placeholder="eg.: The eagle has landed">
+   
+                </div>
+    </div>
+    
+       
+        <div class="form-row" >
+              <div class="form-group col-md-4">
+        <label ><b>Upload Video</b></label>
+             
+        <input class="form-control" type="text" name="video" id="video" placeholder="eg.: upload video">
+         </div>
+
+         <div class="form-group col-md-4">
+          <label ><b>Video Link</b></label>
+         
+          <input class="form-control" type="text" name="videoLink" id="videoLink" placeholder="eg.:https://www.facebook.com/plugins/">
+            </div>
+
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-12">
+            <label><b>News</b></label>
+            <textarea class="form-control" type="text"name="news" id="news" rows="5" col="30"placeholder="eg.: The eagle has landed"></textarea>
+            
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Images</div>
+            <div class="value">
+            <div class="input-group">
+                <label for="image" class="textlabel" title="upload image thumbnail for post"> (max. 10 fileSize max 2mb)</label>
+                <br>
+                <input class="textlabel" type='file' id='image' onchange="readURL(this);" name='image' multiple/>
+                      
+                <!--  </form>-->
+                 <br>
+                  <img id="prev" src="<%= typeof  file != 'undefined' ? file: ' ' %>"  class="img-thumbnail" style="Width:50px; height:50px;"/>
+                  </div>
+            </div>
+            </div>

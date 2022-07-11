@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<%- include('./partials/formHead') %>
+
+
+</head>
+<body translate="no" style="background-image: url(/img/youlogobg.jpg); background-size: cover;">
+
+  <%- include('./partials/navbar') %>
+
+  <link href="/css/signin.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  
+
+  <form class="form-signin text-center" method="POST" action="/admin/login">
+    <p></p>
+     <h1 class="h3 mb-3 font-weight-bold " style="color:rgb(136, 19, 19)">Please sign in</h1>
+    <div> <span> <% if (locals.error.length>0) { %>
+         <ul>
+           
+                 <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                     <%= error%>
+                 </li>
+            
+         </ul>
+         <% } %>
+     </span>
+     </div>
+   
+     <label for="username" class="sr-only">Username</label>
+     <input type="text" id="username" class="form-control" name="username" placeholder="Username" required autofocus>
+     <label for="password" class="sr-only">Password</label>
+     <input type="password" id="password" name="password" class="form-control" data-placement="after" data-toggle="password" maxlength="10" placeholder="Password" required>
+    <br>
+     <button class="btn btn-lg  btn-danger btn-block button-control" type="submit">Sign in</button>
+     <p class="mt-5 mb-3 text-muted">YouTV &copy; 2020</p>
+    </form>
+
+     
+<%- include('./partials/formScripts') %>
+
+</body>
+</html> 

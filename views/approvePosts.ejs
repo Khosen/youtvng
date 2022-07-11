@@ -1,0 +1,160 @@
+
+<!doctype html>
+<html lang="en">
+
+
+
+  <%- include('./partials/dashboard') %> 
+  <body>
+
+    <%- include('./partials/loginNav') %> 
+  
+   <br>
+   <br>
+<section id="breadcrumb">
+<div class="container">
+  <ol class="breadcrumb">
+    <li >Approve Posts</li>
+  
+  </ol>
+   <%- include('./partials/messages') %> 
+  
+</div>
+</section>
+
+<section id="main">
+  <div class="container">
+    <div class= "row">
+      <div class="col-md-3">
+      
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active main-color-bg" aria-current="true">
+            <span class="iconify" data-icon="bi-gear-fill" data-inline="false" data-height="25">
+            </span>
+              Dashboard
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify " data-icon="bi-pencil" data-inline="false" data-height="15">
+          </span>
+              Posts &nbsp; 
+              <span class="badge  badge-danger badge-pill"></span></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-list-task" data-inline="false" data-height="15">
+          </span>
+             Approval  &nbsp;   
+             <span class="badge  badge-danger badge-pill">11345</span></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-person" data-inline="false" data-height="15">
+          </span>
+             Users &nbsp; 
+             <span class="badge  badge-danger badge-pill">0</span></a> 
+           </div>
+          
+           <div class="card">
+
+          
+           </div>
+      </div>
+      <div class="col-md-9">
+
+
+    <div class="card row">
+        <div class="card-header main-color-bg">
+         Pending Post Approval
+       </div>
+       <!--<form  class="" action="/edit/approve" id="form" method="POST">-->
+    
+      <div class="card-body">
+        <div class="row table-responsive col-12 ">
+          <table class="table table-striped table-hover " name="tab">
+         <!-- <table class="table table-striped table-hover table-responsive" name="tab">-->
+        
+            <tr >
+              <th scope="col">Title</th>
+              <th scope="col">Category</th>
+              <th scope="col">Subcategory</th>
+              <th scope="col">Author</th>
+              <th scope="col">Created</th>
+              <th scope="col">View</th>
+              <th scope="col">Delete</th>
+              <th scope="col">Approve</th>
+             
+            </tr>
+            <% for (x=0; x< posts.length; x++) {%>
+              <form  class="" action="/edit/approve/<%= posts[x].id %>" id="form" method="POST">
+    
+            <tr>
+              <td ><%= posts[x].topic%></td>
+              <td><%= posts[x].category %></td>
+              <td><%= posts[x].subcategory %></td>
+              <td><%= posts[x].author %></td>
+              <td ><%= posts[x].date %></td>
+             
+              <td><a href="/edit/postView/<%= posts[x].id %>" class="btn btn-dark">View</a></td>
+            
+              <td><a type="button" class="btn btn-danger" role="button"  data-toggle="modal" data-target="#delete">
+                Delete
+              </a></td>
+            
+            <td> 
+        <input class="form-control" type="hidden" value="<%= posts[x].topic %>" name="topic" id="topic" >
+   
+          <button type="submit" class="btn btn-primary btn-danger">Approve</button>
+   
+            </td>
+            </tr>
+
+            
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteLabel">Confirm Delete</h5>
+     
+      </div>
+   
+      <form class="modal-content" action="/delete/<%= posts[x].id %>" method="POST">
+          
+        <input class="form-control" type="hidden" value="<%= posts[x].id %>" name="deleteID" id="deleteID" >
+   
+      <div class="modal-body">
+       Are you sure you want to delete this posts?
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button"  class="btn btn-primary">Delete</button>
+      </div>
+
+      
+      </form>
+     
+    </div>
+  
+  </div>
+  </div>
+  <div>
+
+  </div>
+ 
+   
+            <% }%> 
+          </table>
+          <div>
+           
+          </div>
+         </div> 
+      </div>
+    </div>
+    <!--website users-->
+    <br>
+      </form>
+  
+</section>
+ 
+<%- include('./partials/dashScripts') %>
+
+
+
+</body>
+</html>

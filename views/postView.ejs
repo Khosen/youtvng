@@ -1,0 +1,149 @@
+
+<!doctype html>
+<html lang="en">
+  
+
+    <%- include('./partials/dashboard') %> 
+    <body>
+      <%- include('./partials/loginNav') %> 
+  
+
+<section id="breadcrumb">
+<div class="container">
+  &nbsp;
+  <%- include('./partials/messages') %> 
+
+</div>
+</section>
+
+<section id="main">
+  <div class="container">
+    <div class= "row">
+      <div class="col-md-3">
+      
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active main-color-bg" aria-current="true">
+            <span class="iconify" data-icon="bi-gear-fill" data-inline="false" data-height="25">
+            </span>
+              Dashboard
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify " data-icon="bi-pencil" data-inline="false" data-height="15">
+          </span>
+              Posts &nbsp; 
+              <span class="badge  badge-danger badge-pill">0</span></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-list-task" data-inline="false" data-height="15">
+          </span>
+             Approval  &nbsp;   
+             <span class="badge  badge-danger badge-pill">11345</span></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-person" data-inline="false" data-height="15">
+          </span>
+             Users &nbsp; 
+             <span class="badge  badge-danger badge-pill">0</span></a> 
+           </div>
+          
+           <div class="card">
+
+          
+           </div>
+      </div>
+     
+      <div class="col-md-9">
+
+       
+    <div class="card ">
+        <div class="card-header main-color-bg">
+        
+
+       </div>
+      </div>
+      <% for( x= 0; x<docs.length; x++) {%>
+        <form   action="/edit/postView/<%= docs[x].id %>" id="form" method="POST">
+
+  <div class="form-row">
+      <div class="form-group col-md-12" > 
+        <label ><b>Topic</b></label>
+         <input class="form-control" type="text" name="inputTopic" id="inputTopic"
+         value=" <%= docs[x].topic %>" >
+      </div>
+    
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-12">
+  
+  <label><b>News</b></label>
+  <textarea class="form-control" type="text"name="news" id="news" rows="5"
+   col="30"> <%= docs[x].news %></textarea>
+  
+</div>
+</div>
+
+<div class="modal-footer">
+<!--<button type="submit" class="btn btn-secondary"  formaction="/delete">Delete</button>-->
+<!--<button type="submit" class="btn btn-primary btn-danger">Edit</button>-->
+<!--<button type="submit" class="btn btn-primary btn-danger">Approve</button>-->
+<!--<td><a href="" class="btn btn-dark">Edit</a></td>-->
+<!--<td><a type="button" class="btn btn-danger" role="button"  data-toggle="modal" data-target="#confirm">
+  Edit
+</a></td>-->
+<!--<td><a type="button" href="/edit/PostView/<%= docs[x].id %>"class="btn btn-danger" role="button"  >
+  Edit
+</a></td>-->
+<td><button type="submit" class="btn btn-primary btn-danger">Edit</button>
+</td>
+<td><a type="button" href="/edit/approve/<%= docs[x].id %>"class="btn btn-danger" role="button"  >
+  Approve
+</a></td>
+</div>
+
+</form>
+</div>
+
+ <!--</form>-->
+    
+    </div>
+    </div>
+    <!--website users-->
+    <br>
+  
+              
+<!--<div class="modal fade" id="confirm" tabindex="-1" aria-labelledby="confirm" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirm">Confirm Edit</h5>
+       
+      </div>
+   
+      <form class="modal-content" action="/edit/postView/<%= docs[x].id %>" method="POST">
+          
+        <input class="form-control" type="hidden" value="<%= docs[x].id %>" name="confirm" id="confirm" >
+   
+      <div class="modal-body">
+       Post had been edited, do you want to approve?
+      </div>
+      
+      <div class="modal-footer">
+         <a type="button" href="/edit/approve/<%= docs[x].id %>"class="btn btn-danger" role="button"  >
+         Yes
+        </a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+      
+    
+      </div>
+      </form>
+    </div>
+  
+  
+  </div>
+  </div>-->
+  <% }%> 
+</section>
+
+<%- include('./partials/dashScripts') %>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <%- include('./partials/formHead') %>
+
+  <%- include('./partials/form') %>
+
+
+</head>
+<body>
+ 
+  <%- include('./partials/navbar') %>
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+<div class="bg-contact2" style="background-color:rgb(36, 35, 35)!important;">
+  <div class="container-contact2"style="background-color:rgb(36, 35, 35)!important;">
+  <div class="wrap-contact2">
+   <span class="contact2-form-title">
+  
+  <p style="font-size: small!important;">  <% if (locals.message.length>0) { %>
+              <ul>
+                 <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                          <%= message%>
+                  </li>
+                 
+              </ul>
+              <% } %> 
+            </p>
+             
+  </span>
+      <form  class="form-signin" action="/admin/posts" id="form" method="POST" enctype="multipart/form-data">
+     
+     
+        <div class="text-center">
+            <img src="/img/navlogo.jpeg">
+            <p><label class="text-center">News Post</label> </p>
+            <span> <% if (locals.error.length>0) { %>
+              <ul>
+                
+                      <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                          <%= error%>
+                      </li>
+                 
+              </ul>
+              <% } %>
+          </span>
+        </div>
+        <br>
+        <br>
+        <div class="form-row" >
+          <div class="form-group col-md-6">
+            <label for="inputState">Category</label>
+          
+            <select required id="catOption"  name="catOption" class="form-control "
+            placeholder="choose category" data-toggle="tooltip">
+   
+       <option disabled="disabled" selected="selected"selected value="">Choose categeory</option>
+       <% for (a=0; a< category.length; a++) {%>
+           <option value="<%= category[a].category%>"> <%= category[a].category %></option>
+           
+          <% }%> 
+       
+        
+       </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputState">Subcategory</label>
+            <select required id="sCategoryOption" name="sCategoryOption" 
+            class="form-control textboxes" placeholder="choose sub category" data-toggle="tooltip"
+            title="click for dropdown">
+            <option  selected value="">Choose SubCategory</option>
+            </select>
+          </div>
+        
+        </div>
+     
+      
+          <div class="form-group">
+            <label >Topic</label>
+             <input class="form-control" type="text" name="inputTopic" id="inputTopic" placeholder="eg.: The eagle has landed">
+          </div>
+          <div class="form-group">
+        
+              <label >Topic Link</label>
+                <input class="form-control" type="text" name="inputLink" id="inputLink" placeholder="eg.:https://www.facebook.com/plugins/">
+            </div>
+      
+        <div class="form-group">
+          <label >Upload Video</label>
+               
+          <input class="form-control" type="text" name="video" id="video" placeholder="eg.: upload video">
+           </div>
+        <div class="form-group">
+          <label >Video Link</label>
+         
+          <input class="form-control" type="text" name="videoLink" id="videoLink" placeholder="eg.:https://www.facebook.com/plugins/">
+            </div>
+
+            <div class="form-group">
+              <label>Author</label>
+             
+                <input class="form-control" type="text" name="inputAuthor" id="inputAuthor" placeholder="eg.: The eagle has landed">
+          </div>
+     
+        <div class="form-group">
+          <label>News</label>
+          <textarea class="form-control" type="text"name="news" id="news" rows="5" col="30"placeholder="eg.: The eagle has landed"></textarea>
+          
+        </div>
+
+        <div class="form-row">
+          <div class="name">Images</div>
+          <div class="value">
+          <div class="input-group">
+              <label for="image" class="textlabel" title="upload image thumbnail for post"> (max. 10 fileSize max 2mb)</label>
+              <br>
+              <input class="textlabel" type='file' id='image' onchange="readURL(this);" name='image' multiple/>
+                    
+              <!--  </form>-->
+               <br>
+                <img id="prev" src="<%= typeof  file != 'undefined' ? file: ' ' %>"  class="img-thumbnail" style="Width:50px; height:50px;"/>
+                </div>
+          </div>
+          </div>
+          <!--<div class="form-group"> 
+            <label class="control-label" for="date">Date</label>
+            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+          </div>-->
+          <div class="form-row button-wrapper">
+            <div class="col-12 col-md-6">
+                <button type="submit" class="btn btn-primary btn-danger btn-block">Post</button>
+       
+            </div>
+            <div class="col-12 col-md-6">
+          <button type="submit" class="btn btn-primary btn-danger btn-block" formaction="/admin/menu">Cancel</button>
+          </div>
+          </div>
+          
+      </form>
+   </div>
+</div> 
+</div>
+</div>
+   
+
+<%- include('./partials/dashboardscript') %>   
+<%- include('./partials/formScripts') %>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="/js/theValue.js"></script>
+    <script src="/js/imgPreview.js"></script>
+    <script src="/js/datePicker.js"></script>
+   
+</body>
+</html>

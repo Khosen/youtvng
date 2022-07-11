@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+ 
+<title>AboutUs</title>
+
+<%- include ('./partials/favico') %>
+<!--<link rel="stylesheet" href="/css/photogallery.css">-->
+
+
+<%- include ('./partials/sheets') %>
+
+<link href="/cover.css" rel="stylesheet">
+</head>
+<body class="text-justify">
+  
+<header class="header-area">
+
+  <% include ./partials/header%>
+  
+</header>
+   
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+ 
+          <div class="row  justify-content-end">
+            <div class="col">         
+            </div>
+            <div class="col-6">
+              
+              
+  <main role="main" class="inner cover " style="margin-top: 15%; ">
+  
+        <h1 class="cover-heading"> Our Story</h1>
+  
+  
+        <p class="justify-content-end" style="font-size:18px;">YouTV is an online broadcasting media Channel for all people 
+          offering a new perspective and experience on global events and broadcasting. We are specialists for high-gloss
+           TV documentaries/magazine, news, music, movies, sports and lifestyle reportage 
+         We provide you with the latest breaking news and videos straight 
+        from the scene/source. we’re the pan-African news media, unique in its concept and vision. 
+        </p>
+         
+</main>
+
+        </div>
+            <div class="col">
+             
+            </div>
+          </div>
+        
+      
+</div>
+
+
+
+<footer class="footer-area">
+    <%- include ('./partials/aboutFooter') %>
+</footer>
+<%- include ('./partials/scripts') %>
+
+<!--<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/node_modules/socket.io-client/dist/socket.io.js"></script> 
+
+<script src="/js/socketio.js">-->
+
+<script src="/js/photogallery.js">
+
+
+/*var socket = io();
+$('#send').click(function(){
+ var comment = $('#comment').val();
+  //  var name=$('#name').val();
+  // var postId = $('#postId').val();
+    if(comment != ''){
+  //   var data = {'postId': postId};
+    $('.comments').append("<p>"+comment+"</p>");
+    $('#comment').val('');
+    alert("message recieved");
+    }
+    
+socket.emit('comment',data);
+alert("message from server");
+
+});*/
+</script>
+</body>
+</html>

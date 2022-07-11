@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+<title>YouNews</title>
+
+<% include ./partials/favico %>
+<!--<link rel="stylesheet" href="/css/photogallery.css">-->
+
+
+<% include ./partials/sheets %>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+   <!-- <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>-->
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+      
+        <% include ./partials/header%>
+        <!-- Navbar Area -->
+        <!--<div class="vizew-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+
+                    <!-- Menu -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="vizew-breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>
+                                    Home</a></li>
+                            <% for(var x=0; x<docs.length; x++) {%>
+    
+                            <li class="breadcrumb-item">
+                                <a href="/programme/<%= docs[x].subcategory %>">
+                                    <%= docs[x].subcategory %>
+                                </a>
+                            </li>
+    
+                            <li class="breadcrumb-item active col-6" aria-current="page">
+                                <%= docs[x].topic %>
+                            </li>
+    
+                            <% } %>  
+                         </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <section class="post-details-area mb-80">
+
+        <div class="container">
+        <div class="row">
+        <div class="col-12">
+                
+        <div class="row justify-content-center">
+            <!-- Post Details Content Area -->
+        <div class="col-12 col-sm-8">
+    
+        <div class="post-details-content d-flex">
+        <!-- Post Share Info -->
+        <div class="post-share-info ">
+        <p>Share</p>
+        <a href="#" class="facebook"><i class="fa fa-facebook "></i></a>
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        </div>
+        <!-- Blog Content -->
+        <div class="blog-content mt-5">
+            <!-- Post Content -->
+            <div class="post-content mt-0">
+                <% for(var x=0; x<docs.length; x++) {%>
+
+                <a href="#" class="post-cata cata-sm cata-danger"><%= docs[x].subcategory %>
+                </a>
+                <a href="single-post.html" class="post-title mb-2"><%= docs[x].topic %>
+                </a>
+
+                <div class="d-flex justify-content-between mb-30">
+                    <div class="post-meta d-flex align-items-center">
+                        <a href="#" class="post-author"><%= docs[x].author %>
+                        </a>
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <a href="#" class="post-date"><%= docs[x].date %>
+                        </a>
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+
+                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true" id="counts">
+                                <%= docs[x].commentCounts %></i>
+                        </a>
+                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                            <%= docs[x].viewCounts %></a>
+                        <a href="#"><i class="fa fa-thumbs-o-up" id="clicks" aria-hidden="true">
+                                <%= docs[x].clicks %></i></a>
+
+                        <!---get click count from db an dplace invisbly-->
+
+                        <input name="clickvalue" type="hidden" id="clickvalue"
+                            value="<%= docs[x].postId %>">
+
+                    </div>
+                  
+                </div>
+          
+        </div>
+        
+        </div>
+
+        </div>
+        <div class="row justify-content-center" >
+            
+            <!-- Post Details Content Area -->
+        <div class="col-12 col-sm-9 " 
+        style=" margin-bottom: -2rem;  background-color: whitesmoke; color:black">
+        <div class="post-details-content">
+         <!-- Blog Content -->
+        <div class="blog-content">
+        <pre style="margin-bottom: 3rem;"> 
+           
+        <p style=" margin-bottom: -2rem; color:black"> <%- docs[x].news[0] %></p>
+        <span>
+         <img class="d-block w-100 img-fluid" src="/<%= docs[x].photo[0] %>"   alt= "YouTVNG" ></span>
+
+        </span>
+        </pre>
+        <br> <br>
+        <pre style=" margin-top: -8rem;">
+                       
+            <% for(var a =1; a<= docs[x].news.length; a++) {%>
+             <!--- <% if(docs[x].news[a] !==null) {%>-->
+                    <p style=" margin-bottom: -2rem; margin-top:-4rem; color:black"> <%- docs[x].news[a] %></p>
+                    <span  style="margin-bottom: -5rem;" >
+                        <img class="d-block w-100" src="/<%= docs[x].photo[a] %>"   alt= "YouTVNG" class="img-fluid"></span>
+
+                    </span>  
+                  
+                  
+               <!--  <%} else{%>
+                    <div style=" margin-bottom: -5em;">ss</div>
+   
+           
+            <%}%> -->
+            <%}%>
+        </pre>
+        </div>
+        </div>
+        </div>
+        </div>
+        <br> <br>
+        <!-- Post Tags -->
+        <div class="post-tags mt-30">
+            <ul>
+                <li><a href="/programme/ruralvoices">Rural Voices</a></li>
+                <li><a href="/programme/youwoman">YouWoman</a></li>
+                <li><a href="/programme/yousports">YouSports</a></li>
+            </ul>
+        </div>
+
+
+
+
+        <!-- Comment Area Start -->
+        <div class="comment_area clearfix mb-50">
+
+            <!-- Section Title -->
+            <div class="section-heading style-2">
+                <h4>Comments</h4>
+                <div class="line"></div>
+            </div>
+
+            <div class="media">
+
+
+        <div class="comments media-body" id="counts">
+            <h5 class="mt-0">Comments <span> </span></h5>
+            <p>
+
+                <button class="btn btn-danger" type="button" data-toggle="collapse"
+                    data-target="#collapse" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Read More comments
+                </button>
+            </p>
+            <div class="collapse" id="collapse">
+                <div class="card card-body" id="doCollapse">
+                <% 
+                if (typeof comments != 'undefined' && comments != null) {
+                comments.forEach( function ( commentData ){
+                %>
+                                    <div>
+
+                        <span><%= commentData.name %> &nbsp;</span>
+                        <span><%= commentData.date %> &nbsp;</span>
+                        <span><%= commentData.time %> &nbsp; </span>
+                        <p>
+                            <%= commentData.comment %>
+                        </p>
+                    </div>
+
+
+                    <% });
+                } %>
+                    <a class="btn " style="Background-color:transparent!important;"
+                        data-toggle="collapse" href="#collapse" role=""
+                        aria-expanded="false" aria-controls="">
+                        Read less
+                    </a>
+                </div>
+                <!--card card-body-->
+            </div>
+            <!--collapse-->
+
+        </div>
+        <!--comments media-body-->
+
+            </div>
+
+        </div>
+        
+
+        <!-- Post A Comment Area -->
+        <div class="post-a-comment-area">
+
+            <!-- Section Title -->
+            <div class="section-heading style-2">
+                <h4>Leave a comment</h4>
+                <div class="line"></div>
+            </div>
+
+            <!-- Reply Form -->
+
+            <form action="" id="commentForm" method="">
+                <div class="form-group">
+                    <% for(var x=0; x<docs.length; x++) {%>
+
+
+
+                    <input name="postId" type="hidden" id="postId" value="<%= docs[x].postId %>">
+                    </br>
+                    <input name="postslug" type="hidden" id="postslug" value="<%= docs[x].slug %>">
+                    </br>
+
+                    <% } %>
+
+
+                    <input type="text" id="name" name="name" class="form-control editboxes"
+                        placeholder="Name">
+
+                    <textarea class="form-control editboxes" name="comment" id="comment" rows="3"
+                        placeholder="Comments"></textarea>
+                </div>
+                <button class="btn vizew-btn mt-30" id="send" value="Send" type="submit">Submit
+                    Comment</button>
+
+                <!--   <input class="btn btn-primary" id="send" type="submit" value="Send">-->
+
+            </form>
+
+    </div>
+
+    
+                    <!-- Related Post Area -->
+
+            <div class="related-post-area mt-5">
+                <!-- Section Title -->
+                <div class="section-heading style-2">
+                    <h4>Related Post</h4>
+                    <div class="line"></div>
+                </div>
+
+                <div class="row">
+
+                    <!-- Single Blog Post -->
+                    <% for(var x=0; x< relatedNews.length; x++) {%>
+
+                    <div class="col-12 col-md-4">
+                <div class="single-post-area mb-50">
+
+                    <div class="post-thumbnail">
+                        <img style="height:80px; width : 70%" src="/<%= relatedNews[x].photo %>"
+                            alt="">
+
+                    </div>
+                    <!--post-thumbnail-->
+
+                    <div class="post-content">
+                        <a href="/programme/youNews" class="post-cata cata-sm cata-success">
+                            <%= relatedNews[x].subcategory %>
+                        </a>
+                        <a href="<%=relatedNews[x].slug %>" class="post-title"
+                            style="font-size: small;">
+                            <%= relatedNews[x].topic %>
+                        </a>
+                        <div class="post-meta d-flex">
+
+                        <a href="<%= relatedNews[x].slug %>"><i class="fa fa-comments-o"
+                                aria-hidden="true" id="counts">
+                                <%= relatedNews[x].commentCounts %></i>
+                        </a>
+                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                            <%= relatedNews[x].viewCounts %></a>
+                        <a href="#"><i class="fa fa-thumbs-o-up" id="clicks"
+                                aria-hidden="true"> <%= relatedNews[x].clicks %></i></a>
+
+                    </div>
+                        <!--post-meta d-flex-->
+                    </div>
+                    <!--post content-->
+                </div>
+                <!--single-post-area mb-50-->
+
+                    </div>
+                    <% } %>
+
+                    <!-- Single Blog Post -->
+                    <% for(var x=0; x< relatedSports.length; x++) {%>
+
+                    <div class="col-12 col-md-4">
+                <div class="single-post-area mb-50">
+
+                    <div class="post-thumbnail">
+                        <img style="height:80px; width : 70%"
+                            src="/<%= relatedSports[x].photo %>" alt="">
+
+                    </div>
+                    <!--post-thumbnail-->
+
+                    <div class="post-content">
+                        <a href="/programme/youNews" class="post-cata cata-sm cata-success">
+                            <%= relatedSports[x].subcategory %>
+                        </a>
+                        <a href="<%=relatedSports[x].slug %>" class="post-title"
+                            style="font-size: small;">
+                            <%= relatedSports[x].topic %>
+                        </a>
+                        <div class="post-meta d-flex">
+
+                        <a href="<%= relatedSports[x].slug %>"><i class="fa fa-comments-o"
+                                aria-hidden="true" id="counts">
+                                <%= relatedSports[x].commentCounts %></i>
+                        </a>
+                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                            <%= relatedSports[x].viewCounts %></a>
+                        <a href="#"><i class="fa fa-thumbs-o-up" id="clicks"
+                                aria-hidden="true"> <%= relatedSports[x].clicks %></i></a>
+
+                        </div>
+                        <!--post-meta d-flex-->
+                    </div>
+                    <!--post content-->
+                </div>
+                <!--single-post-area mb-50-->
+
+                    </div>
+                    <% } %>
+
+
+                    <!-- Single Blog Post -->
+                    <% for(var x=0; x< relatedMusic.length; x++) {%>
+
+                    <div class="col-12 col-md-4">
+                    <div class="single-post-area mb-50">
+
+                        <div class="post-thumbnail">
+                            <img style="height:80px; width : 70%"
+                                src="/<%= relatedMusic[x].photo %>" alt="">
+
+                        </div>
+                        <!--post-thumbnail-->
+
+                        <div class="post-content">
+                            <a href="/programme/youNews" class="post-cata cata-sm cata-success">
+                                <%= relatedMusic[x].subcategory %>
+                            </a>
+                            <a href="<%=relatedMusic[x].slug %>" class="post-title"
+                                style="font-size: small;">
+                                <%= relatedMusic[x].topic %>
+                            </a>
+                            <div class="post-meta d-flex">
+
+                            <a href="<%= relatedMusic[x].slug %>"><i class="fa fa-comments-o"
+                                    aria-hidden="true" id="counts">
+                                    <%= relatedMusic[x].commentCounts %></i>
+                            </a>
+                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                <%= relatedMusic[x].viewCounts %></a>
+                            <a href="#"><i class="fa fa-thumbs-o-up" id="clicks"
+                                    aria-hidden="true"> <%= relatedMusic[x].clicks %></i></a>
+
+                        </div>
+                                <!--post-meta d-flex-->
+                            </div>
+                            <!--post content-->
+                        </div>
+                        <!--single-post-area mb-50-->
+
+                    </div>
+                    <% } %>
+
+                </div>
+            </div>
+               
+
+        <%}%>
+        </div>
+         <!-- Sidebar Widget -->
+        <div class="col-12 col-md-6 col-lg-4">
+        <div class="sidebar-area">
+        <!-- ***** Single Widget ***** -->
+        <div class="single-widget followers-widget mb-50">
+            <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span
+                    class=""></span><span>Fan</span></a>
+            &nbsp;
+            <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span
+                    class=""></span><span>Followers</span></a>
+            &nbsp;
+            <a href="#" class="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span
+                    class=""></span><span>Subscribe</span></a>
+            &nbsp;
+            <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i><span
+                    class=""></span><span>Followers</span></a>
+        </div>
+
+          <!-- ***** Single Widget ***** -->
+          <div class="single-widget latest-video-widget mb-50">
+            <!-- Section Heading -->
+            <div class="section-heading style-2 mb-30">
+                <h4>Other News</h4>
+                <div class="line"></div>
+            </div>
+
+            <!-- Single Blog Post -->
+            <div class="single-post-area mb-30">
+                <!-- Post Thumbnail -->
+                <div class="post-thumbnail">
+                    <img src="/<%= details[0].photo %>" alt="">
+
+                    <!-- Video Duration -->
+
+                </div>
+    
+                <!-- Post Content -->
+                <div class="post-content">
+                    <a href="#" class="post-cata cata-sm cata-success"><%= details[0].subcategory %>
+                    </a>
+                    <a href="<%= details[0].slug %>" class="post-title"><%= details[0].topic%></a>
+                    <div class="post-meta d-flex">
+                        <a href="#"><i class="fa fa-comments-o"
+                                aria-hidden="true"></i><%= details[0].commentsCount %> </a>
+                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                            <%= details[0].viewCounts %></a>
+                        <a href="#"><i class="fa fa-thumbs-o-up"
+                                aria-hidden="true"></i><%= details[0].clicks %></a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <% for(var x=1; x<details.length; x++) {%>
+
+
+            <div class="single-blog-post d-flex">
+                <div class="post-thumbnail">
+
+                    <img src="/<%= details[x].photo %>" alt="">
+                </div>
+                <div class="post-content">
+                    <a href="<%= details[x].slug %>" class="post-title">
+                        <%= details[x].topic %>
+                    </a>
+                    <div class="post-meta d-flex justify-content-between">
+                        <a href="<%= details[x].slug %>"><i class="fa fa-comments-o" aria-hidden="true"
+                                id="counts"> <%= details[x].commentCounts %></i>
+                        </a>
+                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                            <%= details[x].viewCounts %></a>
+                        <a href="#"><i class="fa fa-thumbs-o-up" id="clicks" aria-hidden="true">
+                                <%= details[x].clicks %></i></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+        
+        <!-- ***** Single Widget ***** -->
+        <div class="single-widget add-widget mb-50">
+            <div class="section-heading style-2 mb-30">
+                <h4>Advert</h4>
+                <div class="line"></div>
+            </div>
+            <!-- <a href="#"><img src="img/bg-img/add.png" alt=""></a>-->
+        </div>
+
+        <!-- ***** Sidebar Widget ***** -->
+        <div class="single-widget youtube-channel-widget mb-50">
+            <!-- Section Heading -->
+            <div class="section-heading style-2 mb-30">
+                <h4>Advert</h4>
+                <div class="line"></div>
+            </div>
+
+            <!-- Single YouTube Channel -->
+            <div class="single-youtube-channel d-flex align-items-center">
+
+            </div>
+
+        </div>
+        
+        <!-- ***** Single Widget ***** -->
+        <div class="single-widget newsletter-widget mb-50">
+            <!-- Section Heading -->
+            <div class="section-heading style-2 mb-30">
+                <h4>Advert</h4>
+                <div class="line"></div>
+            </div>
+
+        </div>
+                    
+        <!-- ***** Single Widget ***** -->
+        <div class="single-widget mb-50">
+            <!-- Section Heading -->
+            <div class="section-heading style-2 mb-30">
+                <h4>AfroMusic Charts</h4>
+                <div class="line"></div>
+            </div>
+
+            <!-- Single Blog Post -->
+            <div class="single-blog-post d-flex">
+                <div class="post-thumbnail">
+                    <!--  <img src="img/bg-img/1.jpg" alt="">-->
+                </div>
+                <div class="post-content">
+                   
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+        </div>
+        </div>
+        </div>
+        </div>
+
+    </section>
+
+    <!-- ##### Post Details Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <% include ./partials/footer %>
+    </footer>
+    <% include ./partials/scripts %>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+    <div class="container">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><img src="/img/navbarlogo.jpeg"></a>
+    </div>
+   
+    
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="nav navbar-nav pull-right">
+  
+            <% if(user){ %>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin/menu">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/logout">Logout</a>
+                </li>
+                <% } else{ %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/register">Register</a>
+                    </li>
+                    <% } %>
+
+        </ul>
+      
+    </div>
+    </div>
+    </nav>
+    

@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+   
+  <%- include('./partials/dashboard') %> 
+  <body>
+    <%- include('./partials/loginNav') %> 
+  
+   <br>
+   <br>  
+    
+<section id="breadcrumb">
+<div class="container">
+  <ol class="breadcrumb">
+    <li >Edit Posts</li>
+  </ol>
+</div>
+</section>
+
+<section id="main">
+  <div class="container">
+    <div class= "row">
+      <div class="col-md-3">
+      
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active main-color-bg" aria-current="true">
+            <span class="iconify" data-icon="bi-gear-fill" data-inline="false" data-height="25">
+            </span>
+              Dashboard
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify " data-icon="bi-pencil" data-inline="false" data-height="15">
+          </span>
+              Posts &nbsp; 
+              <span class="badge  badge-danger badge-pill">0</span></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-list-task" data-inline="false" data-height="15">
+          </span>
+             Approval  &nbsp;   
+             <span class="badge  badge-danger badge-pill">11345</span></a>
+          <a href="#" class="list-group-item list-group-item-action">
+             <span class="iconify" data-icon="bi-person" data-inline="false" data-height="15">
+          </span>
+             Users &nbsp; 
+             <span class="badge  badge-danger badge-pill">0</span></a> 
+           </div>
+          
+           <div class="card">
+
+          
+           </div>
+      </div>
+      <div class="col-md-9">
+
+
+    <div class="card">
+        <div class="card-header main-color-bg">
+         Post Topic Lists
+
+       </div>
+     
+       <div>
+      
+        <p>  <span> <% if (locals.message.length>0) { %>
+          <ul>           
+                  <li class="alert alert-danger" style="list-style:none; font-weight: bold;">
+                      <%= message%>
+                  </li>
+             
+          </ul>
+          <% } %>
+      </span>
+       </div>
+      <div class="card-body">
+        
+        <div class="row ">
+          <table class="table table-striped table-hover">
+            <tr style="font-size: small;">
+              <th scope="col">Topic (click on topic to edit)</th>
+              <th scope="col">Subcatgory</th>
+              <th scope="col">Author</th>
+              <th scope="col">Date Published</th>
+              <th scope="col">Time</th>
+            </tr>
+            <% for (a=0; a< docs.length; a++) {%>
+        
+            <tr style="font-size: small;">
+              <td><a href="/edit/editNews/<%= docs[a].id %>"><b><%= docs[a].topic %>
+              </b></a></td>
+              <td><%= docs[a].name %></td>
+              <td> <%= docs[a].author %></td>
+               <td> <%= docs[a].date %></td>
+              <td><%= docs[a].time %></td>
+            </tr>
+            <% } %>
+          </table>
+      
+       
+      </div> 
+      </div>
+    </div>
+    <!--website users-->
+    <br>
+   
+</section>
+
+
+<%- include('./partials/dashScripts') %>
+</body>
+</html>

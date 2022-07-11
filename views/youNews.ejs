@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>News Archive</title>
+
+<% include ./partials/favico %>
+
+<% include ./partials/sheets %>
+
+</head>
+<body>
+
+<div class="preloader d-flex align-items-center justify-content-center">
+<div class="lds-ellipsis">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+
+<header class="header-area">
+
+    <% include ./partials/header %>
+   
+</header>
+
+
+<div class="vizew-breadcrumb">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+<li class="breadcrumb-item"><a href="#">Feature</a></li>
+<li class="breadcrumb-item active" aria-current="page">Archive by Category YouNews</li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="vizew-grid-posts-area mb-80">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-8">
+
+<div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
+
+<div class="archive-catagory">
+<h4><i class="fa fa-newspaper-o" aria-hidden="true"></i>   &nbsp; YouNews</h4>
+</div>
+
+</div>
+<div class="row">
+    <% for(var x=0; x<docs.length; x++) {%>
+ 
+       
+<div class="col-12 col-md-6">
+<div class="single-post-area mb-50">
+ 
+<div class="post-thumbnail">
+
+    <img style="height:200px; width:100%"  src="/<%=docs[x].photo %>"/>
+  
+</div>
+
+<div class="post-content">
+<a href="#" class="post-cata cata-sm cata-success"><%= docs[x].subcategory %></a>
+<a href="/news/<%=docs[x].slug %>" class="post-title"><%= docs[x].topic%></a>
+<div class="post-meta d-flex">
+<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> <%= docs[x].commentCounts%></a>
+<a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%= docs[x].viewCounts%></a>
+<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= docs[x].clicks%></a>
+</div>
+</div>
+</div>
+</div>
+
+<% } %>
+
+</div>
+
+<!--<nav class="mt-50">
+<ul class="pagination justify-content-center">
+<li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+<li class="page-item"><a class="page-link" href="#">1</a></li>
+<li class="page-item"><a class="page-link" href="/programme/youNews2">2</a></li>
+<li class="page-item"><a class="page-link" href="#">3</a></li>
+<li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+</ul>
+</nav>-->
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<div class="sidebar-area">
+
+<div class="single-widget followers-widget mb-50">
+<a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span class="counter">198</span><span>Fan</span></a>
+<a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span class="counter">220</span><span>Followers</span></a>
+<a href="#" class="google"><i class="fa fa-google" aria-hidden="true"></i><span class="counter">140</span><span>Subscribe</span></a>
+</div>
+
+<div class="single-widget latest-video-widget mb-50">
+   
+<div class="section-heading style-2 mb-30">
+<h4>Entertainment News</h4>
+<div class="line"></div>
+</div>
+
+<div class="single-post-area mb-30">
+
+    <% for(var x=0; x<sports.length; x++) {%>
+ 
+         
+<div class="post-thumbnail">
+
+    <img style="height:200px; width:100%"  src="/<%=sports[x].photo %>"/>
+ 
+</div>
+
+<div class="post-content">
+ <a href="/programme/youSports" class="post-cata cata-sm cata-success">Sports</a>
+<a href="/news/<%= sports[x].slug %>" class="post-title"><%= sports[x].topic %></a>
+<div class="post-meta d-flex">
+<a href="/news/<%=sports[x].slug %>">
+    <i class="fa fa-comments-o" aria-hidden="true"></i> <%= sports[x].commentCounts %></a>
+<a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%= sports[x].viewCounts %></a>
+<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= sports[x].clicks %> </a>
+</div>
+</div>
+<% } %>
+</div>
+
+
+<div class="single-post-area mb-30">
+
+        <% for(var x=0; x<music.length; x++) {%>
+     
+           
+    <div class="post-thumbnail">
+    
+        <img style="height:200px; width:100%"  src="/<%=music[x].photo %>"/>
+     
+    </div>
+    
+    <div class="post-content">
+     <a href="/programme/youMusic" class="post-cata cata-sm cata-success">YouMusic</a>
+    <a href="/news/<%= sports[x].slug %>" class="post-title"><%=music[x].topic %></a>
+    <div class="post-meta d-flex">
+    <a href="/news/<%=sports[x].slug %>">
+        <i class="fa fa-comments-o" aria-hidden="true"></i> <%= music[x].commentCounts %></a>
+    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%= music[x].viewCounts %></a>
+    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%=music[x].clicks %> </a>
+    </div>
+    </div>
+    <% } %>
+    
+    </div>
+
+
+    
+<div class="single-post-area mb-30">
+
+        <% for(var x=0; x<movies.length; x++) {%>
+     
+           
+    <div class="post-thumbnail">
+    
+        <img style="height:200px; width:100%"  src="/<%=movies[x].photo %>"/>
+     
+    </div>
+    
+    <div class="post-content">
+     <a href="/programme/youMovies" class="post-cata cata-sm cata-success">YouMovies</a>
+    <a href="/news/<%= movies[x].slug %>" class="post-title"><%=movies[x].topic %></a>
+    <div class="post-meta d-flex">
+    <a href="/news/<%=movies[x].slug %>">
+        <i class="fa fa-comments-o" aria-hidden="true"></i> <%= movies[x].commentCounts %></a>
+    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%= movies[x].viewCounts %></a>
+    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%=movies[x].clicks %> </a>
+    </div>
+    </div>
+    <% } %>
+    
+    </div>
+</div>
+
+
+</div>
+
+<div class="single-widget youtube-channel-widget mb-50">
+
+<div class="section-heading style-2 mb-30">
+<h4>YouSpecials</h4>
+<div class="line"></div>
+</div>
+
+
+    
+<div class="single-post-area mb-30">
+
+        <% for(var x=0; x<lifestyle.length; x++) {%>
+     
+           
+    <div class="post-thumbnail">
+    
+        <img style="height:200px; width:100%"  src="/<%=lifestyle[x].photo %>"/>
+     
+    </div>
+    
+    <div class="post-content">
+     <a href="/programme/lifestyle" class="post-cata cata-sm cata-success">Lifestyle</a>
+    <a href="/news/<%= lifestyle[x].slug %>" class="post-title"><%=lifestyle[x].topic %></a>
+    <div class="post-meta d-flex">
+    <a href="/news/<%=lifestyle[x].slug %>">
+        <i class="fa fa-comments-o" aria-hidden="true"></i> <%= lifestyle[x].commentCounts %></a>
+    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%= lifestyle[x].viewCounts %></a>
+    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%=lifestyle[x].clicks %> </a>
+    </div>
+    </div>
+    <% } %>
+    
+    </div>
+
+    
+
+    
+<div class="single-post-area mb-30">
+
+        <% for(var x=0; x<tourism.length; x++) {%>
+     
+           
+    <div class="post-thumbnail">
+    
+        <img style="height:200px; width:100%"  src="/<%=tourism[x].photo %>"/>
+     
+    </div>
+    
+    <div class="post-content">
+     <a href="/programme/tourism" class="post-cata cata-sm cata-success">Tourism & Lifestyle</a>
+    <a href="/news/<%= tourism[x].slug %>" class="post-title"><%=tourism[x].topic %></a>
+    <div class="post-meta d-flex">
+    <a href="/news/<%=tourism[x].slug %>">
+        <i class="fa fa-comments-o" aria-hidden="true"></i> <%= tourism[x].commentCounts %></a>
+    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%= tourism[x].viewCounts %></a>
+    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%=tourism[x].clicks %> </a>
+    </div>
+    </div>
+    <% } %>
+    
+    </div>
+
+    
+
+    
+<div class="single-post-area mb-30">
+
+        <% for(var x=0; x<travel.length; x++) {%>
+     
+           
+    <div class="post-thumbnail">
+    
+        <img style="height:200px; width:100%"  src="/<%=travel[x].photo %>"/>
+     
+    </div>
+    
+    <div class="post-content">
+     <a href="/programme/travel" class="post-cata cata-sm cata-success">Hospitality & Travel</a>
+    <a href="/news/<%= travel[x].slug %>" class="post-title"><%=travel[x].topic %></a>
+    <div class="post-meta d-flex">
+    <a href="/news/<%=travel[x].slug %>">
+        <i class="fa fa-comments-o" aria-hidden="true"></i> <%= travel[x].commentCounts %></a>
+    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%=travel[x].viewCounts %></a>
+    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%=travel[x].clicks %> </a>
+    </div>
+    </div>
+    <% } %>
+    
+    </div>
+
+ </div>
+
+<div class="single-widget newsletter-widget mb-50">
+
+<div class="section-heading style-2 mb-30">
+<h4>Advert</h4>
+<div class="line"></div>
+</div>
+<img src="/img/3.png" alt="">
+
+</div>
+
+<div class="single-widget">
+
+<div class="section-heading style-2 mb-30">
+<h4>Advert</h4>
+<div class="line"></div>
+</div>
+<img src="/img/3.png" alt="">
+
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<footer class="footer-area">
+    <% include ./partials/footer %>
+</footer>
+<% include ./partials/scripts %>
+
+</body>
+</html>

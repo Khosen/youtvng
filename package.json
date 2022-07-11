@@ -1,0 +1,49 @@
+{
+  "name": "utv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "kels",
+  "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.6.0",
+    "async": "^3.2.4",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "bootstrap": "^4.5.3",
+    "bootstrap-icons": "^1.2.2",
+    "connect-flash": "*",
+    "cookie-parser": "*",
+    "cors": "*",
+    "ejs": "^3.1.8",
+    "express": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "fs": "0.0.1-security",
+    "jquery": "^3.5.1",
+    "jsonwebtoken": "*",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.1",
+    "mongoose-slug-generator": "*",
+    "mongoose-slug-updater": "*",
+    "morgan": "*",
+    "multer": "*",
+    "nodemon": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-jwt": "*",
+    "passport-local": "*",
+    "popper.js": "^1.16.1",
+    "slugify": "*",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "*"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}
