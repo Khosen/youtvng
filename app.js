@@ -164,6 +164,7 @@ app.use('/users', users);
   
 server.listen(port, ()=>{
     console.log('server started on port'+port);
+    console.log(`Listening on ${ port }`);
 });
 
 
