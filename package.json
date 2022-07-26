@@ -1,20 +1,22 @@
 {
-  "name": "utv",
+  "name": "youtv",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  
   },
+  "keywords": [
+    "heroku"
+  ],
   "author": "kels",
   "license": "ISC",
   "dependencies": {
     "@popperjs/core": "^2.6.0",
-    "async": "^3.2.4",
     "bcryptjs": "*",
     "body-parser": "*",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^5.0.0-beta1",
     "bootstrap-icons": "^1.2.2",
     "connect-flash": "*",
     "cookie-parser": "*",
@@ -23,17 +25,17 @@
     "express": "*",
     "express-messages": "*",
     "express-session": "*",
-    "express-validator": "*",
+    "express-validator": "^6.14.2",
     "fs": "0.0.1-security",
     "jquery": "^3.5.1",
     "jsonwebtoken": "*",
-    "mongodb": "^4.7.0",
+    "mongodb": "^4.5.0",
     "mongoose": "^6.4.1",
     "mongoose-slug-generator": "*",
     "mongoose-slug-updater": "*",
     "morgan": "*",
     "multer": "*",
-    "nodemon": "*",
+    "nodemon": "^2.0.18",
     "passport": "*",
     "passport-http": "*",
     "passport-jwt": "*",
@@ -41,9 +43,13 @@
     "popper.js": "^1.16.1",
     "slugify": "*",
     "socket.io": "^4.5.1",
-    "socket.io-client": "*"
+    "socket.io-client": "^4.5.1"
   },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   }
 }
